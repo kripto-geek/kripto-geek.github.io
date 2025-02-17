@@ -549,3 +549,17 @@ body {
 .content {
     padding-bottom: 60px; /* Add space for footer */
 }
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+
+    .background-image {
+        height: 100%;
+        position: fixed;
+    }
+
+    .glass {
+        margin-top: 120px; /* Adjust this value as needed */
+    }
+}
