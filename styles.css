@@ -5,20 +5,25 @@ body {
     padding: 0;
     overflow-x: hidden;
     background-color: #000;
+    position: relative;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
 .background-image {
-    background: url("./images/your_background_image.jpg") no-repeat center
-        center fixed;
-    background-size: cover;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background: url("./images/your_background_image.jpg") no-repeat center
+        center;
+    background-size: cover;
     z-index: -1;
 }
 
