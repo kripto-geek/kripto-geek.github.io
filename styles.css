@@ -66,6 +66,8 @@ nav .logo img {
     text-align: center;
     position: relative;
     animation: float 5s infinite;
+    overflow-y: auto;
+    max-height: 80vh;
 }
 
 @keyframes float {
@@ -127,11 +129,11 @@ nav .logo img {
 }
 
 .dot {
-    font-size: 36px;
+    font-size: 30px;
     color: #94bff3;
     position: absolute;
     left: 0;
-    top: -10px;
+    top: -5px;
 }
 
 @keyframes fadeIn {
@@ -460,31 +462,37 @@ footer {
     }
 
     .glass {
-        width: 95%;
-        margin-top: 60px;
+        width: 90%;
         padding: 15px;
+        margin-top: 100px;
+        font-size: 16px;
         overflow-x: hidden;
     }
 
     .profile-section .profile-container {
         flex-direction: column-reverse;
         text-align: center;
+        gap: 15px;
     }
 
     .profile-text {
+        font-size: 16px;
         text-align: center;
+        line-height: 1.4;
+        padding: 0 10px;
         margin-top: 20px;
     }
 
     .profile-section img {
-        margin: 0 auto;
+        margin: 10px auto;
         width: 120px;
         height: 160px;
     }
 
     .animated-heading {
-        font-size: 18px;
-        padding-left: 30px;
+        font-size: 16px;
+        padding-left: 25px;
+        margin-bottom: 25px;
     }
 
     .skill-buttons {
