@@ -438,3 +438,109 @@ footer {
     background: #94bff3;
     border-radius: 3px;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    nav {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .logo-container {
+        scale: 0.8;
+    }
+
+    .glass {
+        width: 95%;
+        margin-top: 60px;
+        padding: 15px;
+        overflow-x: hidden;
+    }
+
+    .profile-section .profile-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .profile-text {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .profile-section img {
+        margin: 0 auto;
+        width: 120px;
+        height: 160px;
+    }
+
+    .animated-heading {
+        font-size: 18px;
+        padding-left: 30px;
+    }
+
+    .skill-buttons {
+        justify-content: center;
+    }
+
+    .skill-btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .certificates-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .cert-list {
+        max-height: 300px;
+    }
+
+    .cert-preview {
+        min-height: 200px;
+        margin-top: 20px;
+    }
+
+    .nav-button {
+        scale: 0.8;
+    }
+
+    #prev-button {
+        left: 0;
+    }
+
+    #next-button {
+        right: 0;
+    }
+
+    footer {
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .footer-content {
+        padding: 10px;
+    }
+
+    .footer-center p {
+        font-size: 14px;
+    }
+}
+
+/* Add these to your existing CSS */
+.glass {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.content {
+    padding-bottom: 60px; /* Add space for footer */
+}
