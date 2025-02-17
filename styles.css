@@ -31,9 +31,11 @@ nav {
     background: transparent;
     padding: 10px 0;
     text-align: center;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
 }
 
 .logo-container {
@@ -68,6 +70,7 @@ nav .logo img {
     animation: float 5s infinite;
     overflow-y: auto;
     max-height: 80vh;
+    margin-top: 20px;
 }
 
 @keyframes float {
@@ -455,6 +458,7 @@ footer {
     nav {
         position: relative;
         margin-bottom: 20px;
+        padding: 5px 0;
     }
 
     .logo-container {
@@ -552,6 +556,7 @@ footer {
 
 body {
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .content {
@@ -569,6 +574,7 @@ body {
 
     .glass {
         margin-top: 120px; /* Adjust this value as needed */
+        width: 90%;
     }
 }
 
@@ -577,4 +583,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+.nav-fade {
+    opacity: 0;
+    pointer-events: none;
 }

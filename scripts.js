@@ -96,3 +96,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const nav = document.querySelector("nav");
+  const glass = document.querySelector(".glass");
+  let lastScrollTop = 0;
+
+  glass.addEventListener("scroll", function () {
+    let scrollTop = glass.scrollTop;
+
+    // Calculate the threshold based on the nav height
+    const navHeight = nav.offsetHeight;
+    const threshold = 50; // Adjust this value as needed
+
+    if (scrollTop > lastScrollTop && scrollTop > threshold) {
+      // Scrolling down
+      nav.classList.add("nav-fade");
+    } else {
+      // Scrolling up
+      nav.classList.remove("nav-fade");
+    }
+
+    lastScrollTop = scrollTop;
+  });
+});
