@@ -27,6 +27,7 @@ body {
     z-index: -1;
 }
 
+/* Navigation */
 nav {
     background: transparent;
     padding: 10px 0;
@@ -46,9 +47,7 @@ nav {
 
 nav .logo img {
     height: 100px;
-    filter: drop-shadow(
-        0 0 10px rgba(0, 0, 0, 0.5)
-    ); /* Match the logo's design for shadow */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     margin: 0 10px;
 }
 
@@ -58,6 +57,7 @@ nav .logo img {
     font-size: 24px;
 }
 
+/* Main Content Container */
 .glass {
     background: rgba(255, 255, 255, 0.82);
     border-radius: 10px;
@@ -71,18 +71,10 @@ nav .logo img {
     overflow-y: auto;
     max-height: 80vh;
     margin-top: 20px;
+    -webkit-overflow-scrolling: touch;
 }
 
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
+/* Profile Section */
 .profile-section .profile-container {
     display: flex;
     align-items: center;
@@ -108,16 +100,15 @@ nav .logo img {
     transform: scale(1.1);
 }
 
+/* Headings */
 .animated-heading {
     font-family: "Press Start 2P", cursive;
-    animation:
-        fadeIn 1s ease-in-out,
-        2s infinite;
+    animation: fadeIn 1s ease-in-out;
     font-size: 24px;
     margin-bottom: 20px;
-    text-align: left; /* Align to the left */
+    text-align: left;
     position: relative;
-    padding-left: 40px; /* Add space for the dot */
+    padding-left: 40px;
 }
 
 .animated-heading::after {
@@ -139,25 +130,7 @@ nav .logo img {
     top: -5px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes shadow-pulse {
-    0%,
-    100% {
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(0, 0, 0, 1);
-    }
-}
-
+/* Navigation Buttons */
 .nav-button {
     background: transparent;
     border: none;
@@ -168,6 +141,7 @@ nav .logo img {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1001;
 }
 
 .nav-button img {
@@ -183,6 +157,7 @@ nav .logo img {
     right: 10px;
 }
 
+/* Skills Section */
 .skills-container {
     display: flex;
     flex-direction: column;
@@ -231,6 +206,7 @@ nav .logo img {
     color: white;
 }
 
+/* Skill Description Box */
 .skill-description-box {
     margin-top: 20px;
     background: rgba(148, 191, 243, 0.1);
@@ -258,87 +234,7 @@ nav .logo img {
     transition: opacity 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-
-.footer-content {
-    position: relative; /* For absolute positioning of social icons */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-center {
-    text-align: center;
-}
-
-.footer-center p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
-.social-icons {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon {
-    color: #fff;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.social-icon:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-}
-
-.social-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .social-icons {
-        position: relative;
-        top: auto;
-        right: auto;
-        transform: none;
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
+/* Certificates Section */
 .certificates-container {
     display: flex;
     gap: 20px;
@@ -435,42 +331,133 @@ footer {
     font-style: italic;
 }
 
-/* Scrollbar styling */
-.cert-list::-webkit-scrollbar {
-    width: 6px;
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
 
-.cert-list::-webkit-scrollbar-track {
-    background: rgba(148, 191, 243, 0.1);
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
 }
 
-.cert-list::-webkit-scrollbar-thumb {
-    background: #94bff3;
-    border-radius: 3px;
+.footer-center {
+    text-align: center;
 }
 
+.footer-center p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.social-icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: #fff;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Animations */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     body {
-        height: auto;
-        padding: 20px 10px;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding: 0;
     }
 
-    nav {
-        position: relative;
-        margin-bottom: 20px;
-        padding: 5px 0;
+    .glass {
+        position: fixed;
+        top: 140px;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        width: 90%;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-button {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-button img {
+        width: 20px;
+        height: 20px;
     }
 
     .logo-container {
         scale: 0.8;
-    }
-
-    .glass {
-        width: 90%;
-        padding: 15px;
-        margin-top: 100px;
-        font-size: 16px;
-        overflow-x: hidden;
     }
 
     .profile-section .profile-container {
@@ -482,9 +469,7 @@ footer {
     .profile-text {
         font-size: 16px;
         text-align: center;
-        line-height: 1.4;
         padding: 0 10px;
-        margin-top: 20px;
     }
 
     .profile-section img {
@@ -496,16 +481,6 @@ footer {
     .animated-heading {
         font-size: 16px;
         padding-left: 25px;
-        margin-bottom: 25px;
-    }
-
-    .skill-buttons {
-        justify-content: center;
-    }
-
-    .skill-btn {
-        font-size: 14px;
-        padding: 6px 12px;
     }
 
     .certificates-container {
@@ -517,74 +492,57 @@ footer {
         max-height: 300px;
     }
 
-    .cert-preview {
-        min-height: 200px;
-        margin-top: 20px;
-    }
-
-    .nav-button {
-        scale: 0.8;
-    }
-
-    #prev-button {
-        left: 0;
-    }
-
-    #next-button {
-        right: 0;
-    }
-
-    footer {
-        position: relative;
-        margin-top: 20px;
-    }
-
     .footer-content {
-        padding: 10px;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .footer-center p {
-        font-size: 14px;
+    .social-icons {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-top: 10px;
     }
 }
 
-/* Add these to your existing CSS */
-.glass {
-    overflow-y: auto;
-    max-height: 80vh;
-}
-
-body {
-    min-height: 100vh;
-    scroll-behavior: smooth;
-}
-
-.content {
-    padding-bottom: 60px; /* Add space for footer */
-}
-@media screen and (max-width: 768px) {
-    body {
-        padding-top: 0;
-    }
-
-    .background-image {
-        height: 100%;
-        position: fixed;
-    }
-
+/* Landscape Mode */
+@media screen and (max-width: 768px) and (orientation: landscape) {
     .glass {
-        margin-top: 120px; /* Adjust this value as needed */
-        width: 90%;
+        top: 100px;
+        bottom: 60px;
+    }
+
+    .profile-section .profile-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .profile-section img {
+        width: 100px;
+        height: 133px;
     }
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
+/* Utility Classes */
 .nav-fade {
     opacity: 0;
     pointer-events: none;
+}
+
+/* Scrollbar Styling */
+.glass::-webkit-scrollbar,
+.cert-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.glass::-webkit-scrollbar-track,
+.cert-list::-webkit-scrollbar-track {
+    background: rgba(148, 191, 243, 0.1);
+}
+
+.glass::-webkit-scrollbar-thumb,
+.cert-list::-webkit-scrollbar-thumb {
+    background: #94bff3;
+    border-radius: 3px;
 }

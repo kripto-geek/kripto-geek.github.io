@@ -7,18 +7,67 @@ const sections = [
   "project-section-4",
 ];
 
+// Utility Functions
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Section Navigation Functions
+function navigateToSection(direction) {
+  const currentElement = document.getElementById(sections[currentSection]);
+
+  // Add fade out animation
+  currentElement.style.opacity = "0";
+  currentElement.style.transform =
+    direction > 0 ? "translateX(-20px)" : "translateX(20px)";
+
+  setTimeout(() => {
+    currentElement.style.display = "none";
+
+    // Update current section
+    currentSection =
+      (currentSection + direction + sections.length) % sections.length;
+
+    // Show new section
+    const nextElement = document.getElementById(sections[currentSection]);
+    nextElement.style.display = "block";
+
+    // Trigger reflow
+    nextElement.offsetHeight;
+
+    // Add fade in animation
+    nextElement.style.opacity = "1";
+    nextElement.style.transform = "translateX(0)";
+  }, 300);
+}
+
+// Navigation Button Event Listeners
 document.getElementById("next-button").addEventListener("click", () => {
-  document.getElementById(sections[currentSection]).style.display = "none";
-  currentSection = (currentSection + 1) % sections.length;
-  document.getElementById(sections[currentSection]).style.display = "block";
+  navigateToSection(1);
 });
 
 document.getElementById("prev-button").addEventListener("click", () => {
-  document.getElementById(sections[currentSection]).style.display = "none";
-  currentSection = (currentSection - 1 + sections.length) % sections.length;
-  document.getElementById(sections[currentSection]).style.display = "block";
+  navigateToSection(-1);
 });
 
+// Keyboard Navigation
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
+    navigateToSection(1);
+  } else if (e.key === "ArrowLeft") {
+    navigateToSection(-1);
+  }
+});
+
+// Skill Descriptions
 const skillDescriptions = {
   Docker:
     "Container platform for building, shipping, and running applications. Experienced in creating efficient multi-stage builds and managing containers.",
@@ -46,7 +95,53 @@ const skillDescriptions = {
   JavaScript: "Frontend development and Node.js for full-stack applications.",
 };
 
-// Add event listeners for skill buttons
+// Touch Navigation
+document.addEventListener("DOMContentLoaded", function () {
+  const glass = document.querySelector(".glass");
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  glass.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    },
+    { passive: true },
+  );
+
+  glass.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    },
+    { passive: true },
+  );
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeLength = touchEndX - touchStartX;
+    const verticalLength = Math.abs(touchEndY - touchStartY);
+
+    // Only handle horizontal swipes
+    if (
+      Math.abs(swipeLength) > swipeThreshold &&
+      verticalLength < swipeThreshold
+    ) {
+      if (swipeLength > 0) {
+        navigateToSection(-1); // Swipe right - previous
+      } else {
+        navigateToSection(1); // Swipe left - next
+      }
+    }
+  }
+});
+
+// Skills Section Interaction
 document.addEventListener("DOMContentLoaded", function () {
   const descriptionElement = document.getElementById("skill-description");
   let activeButton = null;
@@ -62,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.classList.add("active");
       activeButton = button;
 
-      // Update description
+      // Update description with animation
       const skill = e.target.getAttribute("data-skill");
       descriptionElement.style.opacity = "0";
 
@@ -74,12 +169,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Certificate Preview
 document.addEventListener("DOMContentLoaded", function () {
   const certPreview = document.getElementById("cert-preview");
   const certImages = {
-    aws: "/static/images/certificates/aws-cert.jpg",
-    security: "/static/images/certificates/security-cert.jpg",
-    kubernetes: "/static/images/certificates/kubernetes-cert.jpg",
+    aws: "./images/certificates/aws-cert.jpg",
+    security: "./images/certificates/security-cert.jpg",
+    kubernetes: "./images/certificates/kubernetes-cert.jpg",
   };
 
   document.querySelectorAll(".view-cert-btn").forEach((btn) => {
@@ -87,35 +183,60 @@ document.addEventListener("DOMContentLoaded", function () {
       const certItem = this.closest(".cert-item");
       const certType = certItem.dataset.cert;
 
-      // Update preview with image
-      certPreview.innerHTML = `
-                <img src="${certImages[certType]}"
-                     alt="${certType} Certificate"
-                     style="max-width: 100%; max-height: 100%; object-fit: contain;">
-            `;
+      // Add loading state
+      certPreview.innerHTML = '<div class="loading">Loading...</div>';
+
+      // Create new image
+      const img = new Image();
+      img.src = certImages[certType];
+      img.style.maxWidth = "100%";
+      img.style.maxHeight = "100%";
+      img.style.objectFit = "contain";
+
+      img.onload = () => {
+        certPreview.innerHTML = "";
+        certPreview.appendChild(img);
+      };
+
+      img.onerror = () => {
+        certPreview.innerHTML =
+          '<p class="error">Error loading certificate</p>';
+      };
     });
   });
 });
+
+// Navigation Visibility
 document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector("nav");
   const glass = document.querySelector(".glass");
   let lastScrollTop = 0;
+  let scrollTimeout;
 
-  glass.addEventListener("scroll", function () {
-    let scrollTop = glass.scrollTop;
+  const handleScroll = debounce(() => {
+    const scrollTop = glass.scrollTop;
 
-    // Calculate the threshold based on the nav height
-    const navHeight = nav.offsetHeight;
-    const threshold = 50; // Adjust this value as needed
-
-    if (scrollTop > lastScrollTop && scrollTop > threshold) {
-      // Scrolling down
+    // Show/hide navigation based on scroll direction
+    if (scrollTop > lastScrollTop && scrollTop > 50) {
       nav.classList.add("nav-fade");
     } else {
-      // Scrolling up
       nav.classList.remove("nav-fade");
     }
 
     lastScrollTop = scrollTop;
+  }, 16);
+
+  glass.addEventListener("scroll", handleScroll, { passive: true });
+});
+
+// Initialize
+document.addEventListener("DOMContentLoaded", function () {
+  // Show initial section
+  document.getElementById(sections[currentSection]).style.display = "block";
+
+  // Add smooth transitions to sections
+  sections.forEach((section) => {
+    const element = document.getElementById(section);
+    element.style.transition = "opacity 0.3s ease, transform 0.3s ease";
   });
 });
