@@ -21,8 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url("./images/your_background_image.jpg") no-repeat center
-        center;
+    background: url("./images/your_background_image.jpg") no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -426,19 +425,43 @@ footer {
         height: 100%;
         overflow: hidden;
         padding: 0;
+        margin: 0;
     }
 
     .glass {
         position: fixed;
-        top: 140px;
+        height: calc(100vh - 220px);
+        width: 90%;
+        max-height: none;
+        top: 50%;
         bottom: 80px;
         left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-        width: 90%;
+        transform: translate(-50%, -50%);
+        margin: 60px auto 0;
         padding: 15px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 10px 0;
+    }
+
+    .content {
+        padding-bottom: 60px;
     }
 
     .nav-button {
@@ -511,11 +534,18 @@ footer {
     .glass {
         top: 100px;
         bottom: 60px;
+        height: calc(100vh - 160px);
+        margin-top: 40px;
     }
 
     .profile-section .profile-container {
         flex-direction: row;
         align-items: center;
+        gap: 20px;
+    }
+
+    .profile-text {
+        font-size: 14px;
     }
 
     .profile-section img {
