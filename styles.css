@@ -332,7 +332,7 @@ nav .logo img {
 footer {
     background-color: #333;
     color: #fff;
-    padding: 15px 0;
+    padding: 10px 0;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -429,10 +429,10 @@ footer {
 
     .glass {
         position: relative;
-        width: 90%;
+        width: 85%;
         height: auto;
         min-height: 60vh;
-        max-height: 75vh;
+        max-height: 65vh;
         margin: 120px auto 80px;
         padding: 15px;
         overflow-y: auto;
@@ -462,7 +462,7 @@ footer {
     }
 
     .profile-text {
-        font-size: 16px;
+        font-size: 19px;
         text-align: center;
         padding: 0 10px;
     }
@@ -513,7 +513,7 @@ footer {
     }
 
     .footer-content {
-        padding: 5px 10px;
+        padding: 4px 10px;
     }
 
     .footer-center p {
@@ -523,7 +523,7 @@ footer {
     .social-icons {
         position: static;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 8px;
         transform: none;
     }
 }
@@ -537,7 +537,7 @@ footer {
     }
 
     .profile-text {
-        font-size: 14px;
+        font-size: 17px;
     }
 
     .logo-container {
@@ -545,7 +545,7 @@ footer {
     }
 
     .animated-heading {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
