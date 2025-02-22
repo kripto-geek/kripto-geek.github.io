@@ -432,7 +432,7 @@ footer {
         width: 85%;
         height: auto;
         min-height: 60vh;
-        max-height: 65vh;
+        max-height: 50vh;
         margin: 120px auto 80px;
         padding: 15px;
         overflow-y: auto;
