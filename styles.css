@@ -68,7 +68,7 @@ nav .logo img {
     position: relative;
     animation: float 5s infinite;
     overflow-y: auto;
-    max-height: 80vh;
+    max-height: 70vh;
     margin-top: 20px;
     -webkit-overflow-scrolling: touch;
 }
@@ -432,8 +432,8 @@ footer {
         width: 85%;
         height: auto;
         min-height: 60vh;
-        max-height: 50vh;
-        margin: 120px auto 80px;
+        max-height: 65vh;
+        margin: 50px auto 80px;
         padding: 15px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -443,7 +443,7 @@ footer {
 
     nav {
         background: transparent;
-        padding: 5px 0;
+        padding: 3px 0;
     }
 
     .logo-container {
@@ -595,4 +595,80 @@ footer {
 .cert-list::-webkit-scrollbar-thumb {
     background: #94bff3;
     border-radius: 3px;
+}
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Project Card */
+.project-card {
+    background: rgba(148, 191, 243, 0.1);
+    border: 2px solid #94bff3;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    background: rgba(148, 191, 243, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #94bff3;
+}
+
+.project-title {
+    font-family: "Press Start 2P", cursive;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.project-link {
+    color: #94bff3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: #fff;
+    background-color: #94bff3;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.github-link {
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.github-link a {
+    color: #94bff3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github-link a:hover {
+    text-decoration: underline;
 }
