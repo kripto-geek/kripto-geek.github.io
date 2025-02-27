@@ -436,6 +436,7 @@ footer {
         margin: 50px auto 80px;
         padding: 15px;
         overflow-y: auto;
+        animation: float 5s infinite;
         -webkit-overflow-scrolling: touch;
         transform: none;
         animation: none;
