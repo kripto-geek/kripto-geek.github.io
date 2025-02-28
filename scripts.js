@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const certPreview = document.getElementById("cert-preview");
   const certImages = {
     aws: "./images/certificates/aws-cert.jpg",
-    security: "./images/certificates/security-cert.jpg",
+    security: "./images/certificates/python-advanced.jpg",
     kubernetes: "./images/certificates/kubernetes-cert.jpg",
   };
 
