@@ -21,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url("./images/your_background_image.jpg") no-repeat center center;
+    background: url("./images/videogame-sword.gif") no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -46,12 +46,13 @@ nav {
 
 nav .logo img {
     height: 100px;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
     margin: 0 10px;
 }
 
 .logo-text {
     font-family: "Press Start 2P", cursive;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
     color: #94bff3;
     font-size: 24px;
 }
@@ -63,7 +64,7 @@ nav .logo img {
     padding: 20px;
     width: 80%;
     max-width: 790px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     text-align: center;
     position: relative;
     animation: float 5s infinite;
