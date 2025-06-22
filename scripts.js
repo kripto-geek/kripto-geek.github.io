@@ -4,6 +4,7 @@ const sections = [
   "project-section",
   "project-section-2",
   "project-section-3",
+  "project-section-5",
   "project-section-4",
 ];
 
@@ -239,4 +240,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const element = document.getElementById(section);
     element.style.transition = "opacity 0.3s ease, transform 0.3s ease";
   });
+
+  // Modal handling
+  var modal = document.getElementById("blog-modal");
+  var btn = document.querySelector(".read-more-btn");
+  var span = document.getElementsByClassName("close-btn")[0];
+
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
 });

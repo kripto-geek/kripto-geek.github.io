@@ -21,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url("./images/your_background_image.jpg") no-repeat center center;
+    background: url("./images/videogame-sword.gif") no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -46,12 +46,13 @@ nav {
 
 nav .logo img {
     height: 100px;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
     margin: 0 10px;
 }
 
 .logo-text {
     font-family: "Press Start 2P", cursive;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
     color: #94bff3;
     font-size: 24px;
 }
@@ -63,7 +64,7 @@ nav .logo img {
     padding: 20px;
     width: 80%;
     max-width: 790px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     text-align: center;
     position: relative;
     animation: float 5s infinite;
@@ -671,4 +672,149 @@ footer {
 
 .github-link a:hover {
     text-decoration: underline;
+}
+
+.contact-email-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #94bff3;
+    color: white;
+    text-decoration: none;
+    font-family: "Courier New", Monospace;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+}
+
+.contact-email-btn:hover {
+    background: #7ba8e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-social-icons .social-icon {
+    color: #fff;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.contact-social-icons .social-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.contact-social-icons .social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Blogs Grid */
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Blog Card */
+.blog-card {
+    background: rgba(148, 191, 243, 0.1);
+    border: 2px solid #94bff3;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    background: rgba(148, 191, 243, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-card h3 {
+    font-family: "Press Start 2P", cursive;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.read-more-btn {
+    color: #94bff3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.read-more-btn:hover {
+    color: #fff;
+    background-color: #94bff3;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15% auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
